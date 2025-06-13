@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: red;
+  width: 100%; /* pour centrer la div link au milieu, donner 33% sur chaque div */
+}
+
+.logo {
+  background-color: blue;
+  width: 33%;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  list-style: none;
+  background-color: yellow;
+  width: 33%;
+}
+
+.linkText {
+  text-decoration: none;
+}
+
+.icon {
+  background-color: green;
+  width: 33%;
+}
+
+
