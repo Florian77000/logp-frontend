@@ -68,9 +68,6 @@
 
 /* affichage pour version mobile */
 @media (max-width: 500px) {
-  .header {
-    background-color: grey;
-  }
   .link,
   .iconUser {
     display: none;
