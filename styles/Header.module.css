@@ -1,8 +1,8 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px;
-  background-color: red;
+  padding: 0px 60px;
+  background-color: black;
   width: 100%; /* pour centrer la div link au milieu, donner 33% sur chaque div */
 }
 
@@ -14,6 +14,7 @@
   width: 250px;
 }
 
+/*__________________________________________gestion pour les liens dans le header */
 .link {
   display: flex;
   justify-content: center;
@@ -39,7 +40,7 @@
   left: 0;
   bottom: 0;
   height: 2px;
-  background-color: white;
+  background-color: red;
   width: 0%;
   transition: width 0.2s ease;
 }
@@ -47,23 +48,34 @@
 .linkText:hover::after {
   width: 100%;
 }
+/*_________________________________________________fin de la gestion des liens pour le header */
 
 .icon {
   display: flex;
   justify-content: end;
   width: 20%;
   align-items: center;
-  color: white;
+  color: red;
+}
+
+.iconUser:hover {
+  cursor: pointer;
+}
+
+.iconBars {
+  display: none;
 }
 
 /* affichage pour version mobile */
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .header {
-    flex-direction: column;
     background-color: grey;
   }
-  .link {
-    gap: 10px;
-    background-color: blueviolet;
+  .link,
+  .iconUser {
+    display: none;
+  }
+  .iconBars {
+    display: flex;
   }
 }

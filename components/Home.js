@@ -8,7 +8,7 @@ function Home() {
         <Header />
       </header>
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to loGP</h1>
+        <h1 className={styles.title}>Welcome home to loGP</h1>
       </main>
     </div>
   );
