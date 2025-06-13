@@ -1,14 +1,17 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0px 20px;
   background-color: red;
   width: 100%; /* pour centrer la div link au milieu, donner 33% sur chaque div */
 }
 
 .logo {
-  background-color: blue;
-  width: 33%;
+  width: 20%;
+}
+
+.logoImg {
+  width: 250px;
 }
 
 .link {
@@ -16,17 +19,51 @@
   justify-content: center;
   gap: 60px;
   list-style: none;
-  background-color: yellow;
-  width: 33%;
+  width: 60%;
+  color: white;
+  align-items: center;
 }
 
 .linkText {
-  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  cursor: pointer;
+  transition: font-weight 0.3s ease;
+}
+
+.linkText::after {
+  content: ""; /* créer un element vide pour appliquer du style, sinon af taer ne peut fonctionner */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: white;
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+.linkText:hover::after {
+  width: 100%;
 }
 
 .icon {
-  background-color: green;
-  width: 33%;
+  display: flex;
+  justify-content: end;
+  width: 20%;
+  align-items: center;
+  color: white;
 }
 
-
+/* affichage pour version mobile */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    background-color: grey;
+  }
+  .link {
+    gap: 10px;
+    background-color: blueviolet;
+  }
+}
