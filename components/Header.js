@@ -2,8 +2,17 @@ import styles from "../styles/Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { Popover } from "antd";
+import { useState } from "react";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+  const hide = () => {
+    setOpen(false);
+  };
+  const handleOpenChange = (newOpen) => {
+    setOpen(newOpen);
+  };
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
@@ -22,8 +31,25 @@ export default function Header() {
             size="xl"
           />
         </Link>
-
-        <FontAwesomeIcon className={styles.iconBars} icon={faBars} size="2xl" />
+        <Popover
+          content={
+            <div className={styles.linkPopover}>
+              <li className={styles.linkText}>lien 1</li>
+              <li className={styles.linkText}>lien 2</li>
+              <li className={styles.linkText}>lien 3</li>
+              <a onClick={hide}>Close</a>
+            </div>
+          }
+          trigger="click"
+          open={open}
+          onOpenChange={handleOpenChange}
+        >
+          <FontAwesomeIcon
+            className={styles.iconBars}
+            icon={faBars}
+            size="2xl"
+          />
+        </Popover>
       </div>
     </div>
   );
