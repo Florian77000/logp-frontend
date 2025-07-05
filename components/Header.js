@@ -18,11 +18,11 @@ export default function Header() {
       <div className={styles.logo}>
         <img className={styles.logoImg} src="logo.png"></img>
       </div>
-      <div className={styles.link}>
-        <li className={styles.linkText}>lien 1</li>
-        <li className={styles.linkText}>lien 2</li>
-        <li className={styles.linkText}>lien 3</li>
-      </div>
+      <nav className={styles.link}>
+        <li ><Link  href="#" ><a className={styles.linkText}>Lien 1</a></Link></li>
+        <li ><Link  href="#" ><a className={styles.linkText}>Lien 2</a></Link></li>
+        <li ><Link  href="#" ><a className={styles.linkText}>Lien 3</a></Link></li>
+      </nav>
       <div className={styles.icon}>
         <Link href="/signin">
           <FontAwesomeIcon
