@@ -6,9 +6,16 @@ export default function Signin() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () =>  {
-    fetch('http://localhost:3000/signin')
-    .then(response => response.json())
- }
+    fetch('http://localhost:3000/users/new', {
+      method:'POST',
+      headers: {"content-type":"application/json"},
+      body : JSON.stringify({
+        email : email,
+        password : password,
+      }),
+    })
+    .then((response) => response.json());
+   }
   
   return (
     <div>
