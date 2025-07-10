@@ -5,6 +5,7 @@ export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
     fetch('http://localhost:3000/users/new', {
       method:'POST',
@@ -15,6 +16,8 @@ export default function Signin() {
       }),
     })
     .then((response) => response.json());
+    setEmail(""); //met le input email vide après click sur le bouton
+    setPassword(""); //met le input password vide après click sur le bouton
    }
   
   return (
