@@ -1,0 +1,100 @@
+.main {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 80vh;
+}
+
+
+.left {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.titleText {
+    font-size: 24px;
+}
+
+.part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    width : 50%;
+    gap: 30px;
+    padding: 10px;
+}
+
+.inputText {
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(67, 67, 67);
+}
+
+.button {
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(67, 67, 67);
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: grey;
+}
+
+.other {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    border-top: 1px black solid;
+    width: 40%;
+}
+
+.otherText {
+    text-align: center;
+    margin-top: 0px;
+    opacity: 30%;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.img {
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+
+.right {
+    width: 40%;
+}
+
+.imgFumee {
+    width: 100%;
+    height: 90vh;
+}
+
+@media (max-width: 500px) {
+    .left {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+}

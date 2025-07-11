@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import styles from "../styles/Signin.module.css"
 import { useState } from "react";
 
 export default function Signin() {
@@ -33,21 +34,37 @@ export default function Signin() {
       <header>
         <Header />
       </header>
-      <main>
-        <div>
-          <h1>Se connecter</h1>
+      <main className={styles.main}>
+        <div className={styles.left}>
+          <div className={styles.part}>
+            <div className={styles.title}>
+              <p className={styles.titleText}>Se connecter</p>
+            </div>
+            <div className={styles.input}>
+              <input className={styles.inputText} type="email" placeholder = "Votre email" onChange={(e) => setEmail(e.target.value)} value={email} />
+              <input className={styles.inputText} type="password" placeholder="Votre mot de passe" onChange={(e) => setPassword(e.target.value)} value={password} />
+              <button className={styles.button} onClick={() => handleSubmit()}>Login</button>
+            </div>
+            <div className={styles.other}>
+              <p className={styles.otherText}>signup</p>
+              <div className={styles.imgDiv}>
+                <img className={styles.img} src="./google.png"></img>
+                <img className={styles.img} src="./steam.png"></img>
+                <img className={styles.img} src="./mail.png"></img>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <input type="email" placeholder="Votre email" onChange={(e) => setEmail(e.target.value)} value={email} />
-          <input type="password" placeholder="Votre mot de passe" onChange={(e) => setPassword(e.target.value)} value={password} />
-          <button onClick={() => handleSubmit()}>Login</button>
+        <div className={styles.right}>
+          <img className={styles.imgFumee} src="./fumée.jpg"></img>
         </div>
+        </main>
+
+
         <div>
           <p>{message}</p>
         </div>
-        
-
-      </main>
+      
     </div>
   );
 }
