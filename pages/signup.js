@@ -10,6 +10,11 @@ export default function Signin() {
  
   //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        if (!passwordRegex.test(password)) {
+        setMessage("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
+    return;
+  }
     fetch('http://localhost:3000/users/new', {
       method:'POST',
       headers: {"content-type":"application/json"},

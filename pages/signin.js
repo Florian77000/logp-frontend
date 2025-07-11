@@ -25,7 +25,7 @@ export default function Signin() {
     .then((data) => {
       if(data.result === true) {
         setMessage("ok")
-        router.push("/")
+        router.push("/") //permet de gerer la redirection sur la page index
       } else {
         setMessage("erreur")
       }
@@ -67,7 +67,6 @@ export default function Signin() {
         <div>
           <p>{message}</p>
         </div>
-      
     </div>
   );
 }
