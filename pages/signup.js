@@ -10,7 +10,7 @@ export default function Signin() {
  
   //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
-    fetch('http://localhost:3000/users/signin', {
+    fetch('http://localhost:3000/users/new', {
       method:'POST',
       headers: {"content-type":"application/json"},
       body : JSON.stringify({
@@ -26,7 +26,7 @@ export default function Signin() {
         setMessage("erreur")
       }
     })
-    setEmail(""); //met le input email vide après click sur le bouton
+     setEmail(""); //met le input email vide après click sur le bouton
     setPassword(""); //met le input password vide après click sur le bouton
    }
   
@@ -39,20 +39,15 @@ export default function Signin() {
         <div className={styles.left}>
           <div className={styles.part}>
             <div className={styles.title}>
-              <p className={styles.titleText}>Se connecter</p>
+              <p className={styles.titleText}>Créer mon compte</p>
             </div>
             <div className={styles.input}>
               <input className={styles.inputText} type="email" placeholder = "Votre email" onChange={(e) => setEmail(e.target.value)} value={email} />
               <input className={styles.inputText} type="password" placeholder="Votre mot de passe" onChange={(e) => setPassword(e.target.value)} value={password} />
-              <button className={styles.button} onClick={() => handleSubmit()}>Login</button>
+              <button className={styles.button} onClick={() => handleSubmit()}>Créer</button>
             </div>
             <div className={styles.other}>
-              <p className={styles.otherText}>signup</p>
-              <div className={styles.imgDiv}>
-                <img className={styles.img} src="./google.png"></img>
-                <img className={styles.img} src="./steam.png"></img>
-                <Link href="./signup"><img className={styles.img} src="./mail.png"></img></Link>
-              </div>
+              <p className={styles.otherText}>Deja un compte? </p>
             </div>
           </div>
         </div>
