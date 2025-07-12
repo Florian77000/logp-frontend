@@ -4,7 +4,7 @@ import { useState } from "react";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "../reducer/user";
+import { login} from "../reducer/user";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ export default function Signin() {
     .then((data) => {
       if(data.result === true) {
         setMessage("ok")
-        // router.push("/") //permet de gerer la redirection sur la page index
+        router.push("/") //permet de gerer la redirection sur la page index
         dispatch(login ({
           email : email,
         }));
