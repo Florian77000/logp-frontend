@@ -91,6 +91,9 @@
     height: 90vh;
 }
 
+.userSection {
+    background-color: red;
+}
 @media (max-width: 500px) {
     .left {
         width: 100%;

@@ -15,6 +15,9 @@ export default function Signin() {
   const user = useSelector((state) => state.user.value);
 
   const router = useRouter ();
+
+
+  
  
   //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
@@ -42,17 +45,11 @@ export default function Signin() {
     setPassword(""); //met le input password vide après click sur le bouton
    }
 
-   const handleLogout = () => {
-    dispatch(logout());
-   }
-  
   return (
     <div>
       <header>
         <Header />
       </header>
-      <p>bienvenue {user.email}</p>
-      <button onClick={() => handleLogout()}>logout</button>
       <main className={styles.main}>
         <div className={styles.left}>
           <div className={styles.part}>
