@@ -3,11 +3,16 @@ import styles from "../styles/Signin.module.css"
 import { useState } from "react";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../reducer/user";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
+
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.value);
 
   const router = useRouter ();
  
@@ -25,7 +30,11 @@ export default function Signin() {
     .then((data) => {
       if(data.result === true) {
         setMessage("ok")
-        router.push("/") //permet de gerer la redirection sur la page index
+        // router.push("/") //permet de gerer la redirection sur la page index
+        dispatch(login ({
+          email : email,
+        }));
+        console.log('test', user.email)
       } else {
         setMessage("erreur")
       }
@@ -39,6 +48,7 @@ export default function Signin() {
       <header>
         <Header />
       </header>
+      <p>bienvenue {user.email}</p>
       <main className={styles.main}>
         <div className={styles.left}>
           <div className={styles.part}>
