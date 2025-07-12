@@ -1,12 +1,14 @@
 import Header from "../components/Header";
 import styles from "../styles/Signin.module.css"
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("")
+
+  const router = useRouter ();
  
   //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
@@ -27,6 +29,7 @@ export default function Signin() {
     .then((data) => {
       if(data.result === true) {
         setMessage("ok")
+        router.push('/signin')
       } else {
         setMessage("erreur")
       }

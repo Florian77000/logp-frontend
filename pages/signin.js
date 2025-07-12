@@ -16,9 +16,6 @@ export default function Signin() {
 
   const router = useRouter ();
 
-
-  
- 
   //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
     fetch('http://localhost:3000/users/signin', {
