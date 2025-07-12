@@ -4,7 +4,7 @@ import { useState } from "react";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../reducer/user";
+import { login, logout } from "../reducer/user";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -34,13 +34,16 @@ export default function Signin() {
         dispatch(login ({
           email : email,
         }));
-        console.log('test', user.email)
       } else {
         setMessage("erreur")
       }
     })
     setEmail(""); //met le input email vide après click sur le bouton
     setPassword(""); //met le input password vide après click sur le bouton
+   }
+
+   const handleLogout = () => {
+    dispatch(logout());
    }
   
   return (
@@ -49,6 +52,7 @@ export default function Signin() {
         <Header />
       </header>
       <p>bienvenue {user.email}</p>
+      <button onClick={() => handleLogout()}>logout</button>
       <main className={styles.main}>
         <div className={styles.left}>
           <div className={styles.part}>
