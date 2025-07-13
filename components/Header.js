@@ -10,6 +10,7 @@ import { logout} from "../reducer/user";
 export default function Header() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
+  
   const [open, setOpen] = useState(false);
   const hide = () => {
     setOpen(false);
@@ -30,6 +31,18 @@ export default function Header() {
            <button onClick={() => handleLogout()}>logout</button>
            </div>
         )
+     } else {
+      userSection = (
+     <>
+      <Link href="/signin">
+          <FontAwesomeIcon
+            className={styles.iconUser}
+            icon={faUser}
+            size="xl"
+          />
+        </Link>
+      </>
+      )
      }
   return (
     <div className={styles.header}>
@@ -40,16 +53,10 @@ export default function Header() {
         <li ><Link  href="#" ><a className={styles.linkText}>Lien 1</a></Link></li>
         <li ><Link  href="#" ><a className={styles.linkText}>Lien 2</a></Link></li>
         <li ><Link  href="#" ><a className={styles.linkText}>Lien 3</a></Link></li>
-        <div>{userSection}</div>
+        
       </nav>
       <div className={styles.icon}>
-        <Link href="/signin">
-          <FontAwesomeIcon
-            className={styles.iconUser}
-            icon={faUser}
-            size="xl"
-          />
-        </Link>
+        <div>{userSection}</div>
         <Popover
           content={
             <div className={styles.linkPopover}>
