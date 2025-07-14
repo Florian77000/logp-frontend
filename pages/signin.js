@@ -29,13 +29,12 @@ export default function Signin() {
     .then((response) => response.json())
     .then((data) => {
       if(data.result === true) {
-        setMessage("ok")
         router.push("/") //permet de gerer la redirection sur la page index
         dispatch(login ({
           email : email,
         }));
       } else {
-        setMessage("L'email ou le mot de passe est incorrect")
+        setMessage("erreur")
       }
     })
     setEmail(""); //met le input email vide après click sur le bouton

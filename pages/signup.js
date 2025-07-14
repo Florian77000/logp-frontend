@@ -7,7 +7,8 @@ import Link from "next/link";
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
+  const [messageSucces, setMessageSucces] = useState ("");
 
   const router = useRouter ();
  
@@ -15,13 +16,16 @@ export default function Signin() {
   const handleSubmit = () =>  {
       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
       const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
-        if (!passwordRegex.test(password)) {
-        setMessage("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
-        if (!emailRegex.test(email)) {
-          setMessage("Le format d'email est incorrect")
-        }
-        return;
+         if (!emailRegex.test(email)) {
+    setMessage("Le format d'email est incorrect");
+    return;
   }
+
+  if (!passwordRegex.test(password)) {
+    setMessage("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
+    return;
+  }
+  
     fetch('http://localhost:3000/users/new', {
       method:'POST',
       headers: {"content-type":"application/json"},
@@ -33,10 +37,12 @@ export default function Signin() {
     .then((response) => response.json())
     .then((data) => {
       if(data.result === true) {
-        setMessage("ok")
-        router.push('/signin')
+      setMessageSucces("Votre compte a été créé avec succès, redirection ");
+      setTimeout(() => {
+        router.push('/signin'); // redirection après 3 secondes
+      }, 3000);
       } else {
-        setMessage("L'email ou le mot de passe est incorrect")
+        setMessageSucces("L'email ou le mot de passe est incorrect")
       }
     })
      setEmail(""); //met le input email vide après click sur le bouton
@@ -60,6 +66,7 @@ export default function Signin() {
               <div className={styles.alert}>
                 <button className={styles.button} onClick={() => handleSubmit()}>Login</button>
                 <p className={styles.alertText}>{message}</p>
+                <p className={styles.alertTextSucces}>{messageSucces}</p>
               </div>
             </div>
             <div className={styles.other}>

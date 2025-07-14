@@ -6,16 +6,22 @@
 }
 
 .alert {
-    color: red;
+    
     width: 100%;
     padding-bottom: 30px;
 }
 
 .alertText {
+    color: red;
     margin: 0;
     position: absolute; /*eviter lorsque le message s'affiche de décaler toute la div alert vers le bas  */
 }
 
+.alertTextSucces {
+     color: green;
+    margin: 0;
+    position: absolute; /*eviter lorsque le message s'affiche de décaler toute la div alert vers le bas  */
+}
 .left {
     display: flex;
     justify-content: center;
