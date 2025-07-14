@@ -37,12 +37,15 @@ export default function Signin() {
     .then((response) => response.json())
     .then((data) => {
       if(data.result === true) {
+      setMessage("") //remise à 0 du message d'erreur si apparut avant le succes
       setMessageSucces("Votre compte a été créé avec succès, redirection ");
+      
       setTimeout(() => {
         router.push('/signin'); // redirection après 3 secondes
+        
       }, 3000);
       } else {
-        setMessageSucces("L'email ou le mot de passe est incorrect")
+        setMessage("L'email ou le mot de passe est incorrect")
       }
     })
      setEmail(""); //met le input email vide après click sur le bouton

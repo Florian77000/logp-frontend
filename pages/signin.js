@@ -34,7 +34,7 @@ export default function Signin() {
           email : email,
         }));
       } else {
-        setMessage("erreur")
+        setMessage("L'email ou le mot de passe est incorrect")
       }
     })
     setEmail(""); //met le input email vide après click sur le bouton
