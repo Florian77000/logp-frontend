@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import styles from "../styles/Signin.module.css"
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -13,9 +14,13 @@ export default function Signin() {
   //connexion sur la route pour ajouter un user
   const handleSubmit = () =>  {
       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+      const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
         if (!passwordRegex.test(password)) {
         setMessage("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
-    return;
+        if (!emailRegex.test(email)) {
+          setMessage("Le format d'email est incorrect")
+        }
+        return;
   }
     fetch('http://localhost:3000/users/new', {
       method:'POST',
@@ -58,7 +63,7 @@ export default function Signin() {
               </div>
             </div>
             <div className={styles.other}>
-              <p className={styles.otherText}>Deja un compte? </p>
+              <Link href="./signin"><a className={styles.otherText}>Deja un compte?</a></Link>
             </div>
           </div>
         </div>
