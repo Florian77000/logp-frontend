@@ -31,7 +31,7 @@ export default function Signin() {
         setMessage("ok")
         router.push('/signin')
       } else {
-        setMessage("erreur")
+        setMessage("L'email ou le mot de passe est incorrect")
       }
     })
      setEmail(""); //met le input email vide après click sur le bouton
@@ -52,7 +52,10 @@ export default function Signin() {
             <div className={styles.input}>
               <input className={styles.inputText} type="email" placeholder = "Votre email" onChange={(e) => setEmail(e.target.value)} value={email} />
               <input className={styles.inputText} type="password" placeholder="Votre mot de passe" onChange={(e) => setPassword(e.target.value)} value={password} />
-              <button className={styles.button} onClick={() => handleSubmit()}>Créer</button>
+              <div className={styles.alert}>
+                <button className={styles.button} onClick={() => handleSubmit()}>Login</button>
+                <p className={styles.alertText}>{message}</p>
+              </div>
             </div>
             <div className={styles.other}>
               <p className={styles.otherText}>Deja un compte? </p>
@@ -63,10 +66,6 @@ export default function Signin() {
           <img className={styles.imgFumee} src="./fumée.jpg"></img>
         </div>
         </main>
-        <div>
-          <p>{message}</p>
-        </div>
-      
     </div>
   );
 }

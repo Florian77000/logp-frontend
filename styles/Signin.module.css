@@ -5,6 +5,16 @@
     height: 80vh;
 }
 
+.alert {
+    color: red;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.alertText {
+    margin: 0;
+    position: absolute; /*eviter lorsque le message s'affiche de décaler toute la div alert vers le bas  */
+}
 
 .left {
     display: flex;
@@ -48,6 +58,7 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
+    width: 100%;
 }
 
 .button:hover {
@@ -91,9 +102,6 @@
     height: 90vh;
 }
 
-.userSection {
-    background-color: red;
-}
 @media (max-width: 500px) {
     .left {
         width: 100%;
