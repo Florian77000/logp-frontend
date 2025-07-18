@@ -51,7 +51,7 @@ export default function Header() {
       </div>
       <nav className={styles.link}>
         <li ><Link  href="#" ><a className={styles.linkText}>Lien 1</a></Link></li>
-        <li ><Link  href="#" ><a className={styles.linkText}>Lien 2</a></Link></li>
+        <li ><Link  href="./calendar" ><a className={styles.linkText}>Calendrier</a></Link></li>
         <li ><Link  href="#" ><a className={styles.linkText}>Lien 3</a></Link></li> 
       </nav>
       <div className={styles.icon}>
