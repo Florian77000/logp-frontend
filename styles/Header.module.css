@@ -36,7 +36,7 @@
 }
 
 .linkText::after {
-  content: ""; /* créer un element vide pour appliquer du style, sinon af taer ne peut fonctionner */
+  content: ""; /* créer un element vide pour appliquer du style, sinon after ne peut fonctionner */
   position: absolute;
   left: 0;
   bottom: 0;

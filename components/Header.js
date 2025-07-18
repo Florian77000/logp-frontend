@@ -11,24 +11,57 @@ export default function Header() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   
-  const [open, setOpen] = useState(false);
-  const hide = () => {
-    setOpen(false);
+  //gestion du popover lors du login
+  const [userPopoverOpen, setUserPopoverOpen] = useState(false);
+  const hideUserPopover = () => {
+    setUserPopoverOpen(false);
   };
-  const handleOpenChange = (newOpen) => {
-    setOpen(newOpen);
+  const handleUserPopoverOpenChange = (newOpen) => {
+    setUserPopoverOpen(newOpen);
   };
+  //fin gestion du popover lors du login
+
+  //gestion du popover menu pour ecran smartphone
+  const [mainMenuPopoverOpen, setMainMenuPopoverOpen] = useState(false);
+  const hideMainMenuPopover = () => {
+    setMainMenuPopoverOpen(false);
+  };
+  const handleMainMenuPopoverOpenChange = (newOpen) => {
+    setMainMenuPopoverOpen(newOpen);
+  };
+  // end gestion du popover menu pour ecran smartphone
+
 
   //gerer le jsx en fonction de si connecté ou non
      let userSection;
       const handleLogout = () => {
-    dispatch(logout());
-   }
+      dispatch(logout());
+      hideUserPopover();
+      }
      if(user.email) {
         userSection = (
           <div>
             <p>bienvenue {user.email}</p>
-           <button onClick={() => handleLogout()}>logout</button>
+            <Popover
+          content={
+            <div className={styles.linkPopover}>
+              <li className={styles.linkTextAdmin}>ajouter un circuit</li>
+              <li className={styles.linkTextAdmin}>lien 2</li>
+              <li className={styles.linkTextAdmin}>lien 3</li>
+                <button onClick={() => handleLogout()}>logout</button>
+              <a onClick={hideUserPopover}>Close</a>
+            </div>
+          }
+          trigger="click"
+          open={userPopoverOpen}
+          onOpenChange={handleUserPopoverOpenChange}
+        >
+          <FontAwesomeIcon
+            className={styles.iconBarsAdmin}
+            icon={faBars}
+            size="2xl"
+          />
+        </Popover>
            </div>
         )
      } else {
@@ -38,7 +71,7 @@ export default function Header() {
           <FontAwesomeIcon
             className={styles.iconUser}
             icon={faUser}
-            size="xl"
+            size="xl" 
           />
         </Link>
       </>
@@ -62,12 +95,12 @@ export default function Header() {
               <li className={styles.linkText}>lien 1</li>
               <li className={styles.linkText}>lien 2</li>
               <li className={styles.linkText}>lien 3</li>
-              <a onClick={hide}>Close</a>
+              <a onClick={hideMainMenuPopover}>Close</a>
             </div>
           }
           trigger="click"
-          open={open}
-          onOpenChange={handleOpenChange}
+          open={mainMenuPopoverOpen}
+          onOpenChange={handleMainMenuPopoverOpenChange}
         >
           <FontAwesomeIcon
             className={styles.iconBars}
