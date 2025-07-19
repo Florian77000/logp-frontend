@@ -83,8 +83,8 @@ export default function Header() {
         <img className={styles.logoImg} src="logo.png"></img>
       </div>
       <nav className={styles.link}>
-        <li ><Link  href="#" ><a className={styles.linkText}>Lien 1</a></Link></li>
         <li ><Link  href="./calendar" ><a className={styles.linkText}>Calendrier</a></Link></li>
+        <li ><Link  href="./addCalendar" ><a className={styles.linkText}>Ajout circuit</a></Link></li>
         <li ><Link  href="#" ><a className={styles.linkText}>Lien 3</a></Link></li> 
       </nav>
       <div className={styles.icon}>
