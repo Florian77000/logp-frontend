@@ -1,14 +1,35 @@
 .calendar {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: auto;
-}.image {
-    display: flex;
+    width: 100%;
+    border: solid 1px green;
+    gap: 10px ;
 }
 
-.hours {
+.calendarCard {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 300px;
+    background-color: red;
+}
+
+.divImage {
+    background-color: blue;
+    height: 50%;
+}
+
+.image {
+    width: 200px;
+    height: 100%;
+}
+
+.divText {
+   background-color: yellow;
+   height: 50%;
+
+}
+
+/* .hours {
     color: red;
     background-color: white;
     border: solid 1px black;
@@ -18,4 +39,4 @@
     padding: 10px;
     font-size: 24px;
     font-weight: bold;
-}
+} */

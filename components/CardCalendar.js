@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../styles/Calendar.module.css"
 
 export default function CardCalendar () {
 
@@ -14,16 +15,19 @@ export default function CardCalendar () {
       }, []);
     
         const watch = calendar.map((e,i) => (
-            <div key={i}>
-                <p>{e.name}</p>
-                <p>{e.dlc}</p>
-            </div>
+                <div className={styles.calendarCard} key={i}>
+                    <div className={styles.divImage}>
+                        <img className={styles.image} src={e.photo}></img>
+                    </div>
+                    <div className={styles.divText}>
+                        <p>{e.name}</p>
+                        <p>{e.dlc}</p>
+                    </div>
+                    
+                </div>
         ));
     
     return (
-        <>
-        <h1>Calendrier</h1>
-        <div>{watch}</div>
-        </>
+        <div className={styles.calendar}>{watch}</div>
     )
 }
