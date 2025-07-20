@@ -9,6 +9,7 @@ export default function addCalendar () {
     const [url, setUrl] = useState('');
     const [name, setName] = useState('');
     const [dlc, setDlc] = useState('');
+    const [date, setDate] = useState('');
     const [message, setMessage] = useState('');
 
     const handleUpload = async() => {
@@ -40,6 +41,7 @@ export default function addCalendar () {
                     name : name,
                     dlc : dlc,
                     photo : url,
+                    date : date,
                 })
             })
             .then((reponse) => reponse.json())
@@ -53,6 +55,7 @@ export default function addCalendar () {
             setName("");
             setDlc("");
             setUrl("");
+            setDate("");
         }
     }
     return (
@@ -64,6 +67,7 @@ export default function addCalendar () {
         <input type="text" placeholder="Nom du circuit" value={name} onChange={(e)=>setName(e.target.value)}></input>
         <input type="text" placeholder="Nom du dlc" value={dlc} onChange={(e)=>setDlc(e.target.value)}></input>
         <input type="file" width={'200px'} onChange={(e)=>(setImage(e.target.files[0]))}></input>
+        <input type="date" value={date} onChange={(e)=>setDate(e.target.value)}></input>
     </div>
     <div>
         <button onClick={handleUpload}>upload</button>

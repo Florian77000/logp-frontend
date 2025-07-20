@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import styles from "../styles/Calendar.module.css"
+import styles from "../styles/Calendar.module.css";
+import moment from 'moment';
+moment.locale('fr');
+import 'moment/locale/fr';
 
 export default function CardCalendar () {
 
@@ -19,15 +22,23 @@ export default function CardCalendar () {
                     <div className={styles.divImage}>
                         <img className={styles.image} src={e.photo}></img>
                     </div>
+                    <div className={styles.hours}>
+                        {moment(e.date).format('Do MMM')}
+                    </div>
                     <div className={styles.divText}>
                         <p>{e.name}</p>
                         <p>{e.dlc}</p>
+                        
+                        
                     </div>
                     
                 </div>
         ));
     
     return (
+        <>
+        <h1 className={styles.title}>Calendrier</h1>
         <div className={styles.calendar}>{watch}</div>
+        </>
     )
 }
