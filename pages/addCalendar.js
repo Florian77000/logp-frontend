@@ -65,7 +65,16 @@ export default function addCalendar () {
     </header>
     <div>
         <input type="text" placeholder="Nom du circuit" value={name} onChange={(e)=>setName(e.target.value)}></input>
-        <input type="text" placeholder="Nom du dlc" value={dlc} onChange={(e)=>setDlc(e.target.value)}></input>
+        <select value={dlc} onChange={(e) => setDlc(e.target.value)}>
+            <option value="">Choisir un DLC</option>
+            <option value="DLC1">Jeu de base</option>
+            <option value="DLC2">American Track Pack</option>
+            <option value="DLC2">British GT Pack</option>
+            <option value="DLC2">2020 GT Wolrd Challenge</option>
+            <option value="DLC2">Intercontinental GT Pack</option>
+            <option value="DLC2">GT2 Pack</option>
+            <option value="DLC2">2023 GT World</option>
+        </select>
         <input type="file" width={'200px'} onChange={(e)=>(setImage(e.target.files[0]))}></input>
         <input type="date" value={date} onChange={(e)=>setDate(e.target.value)}></input>
     </div>
