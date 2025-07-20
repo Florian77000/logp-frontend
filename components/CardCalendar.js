@@ -26,12 +26,10 @@ export default function CardCalendar () {
                         {moment(e.date).format('Do MMM')}
                     </div>
                     <div className={styles.divText}>
-                        <p>{e.name}</p>
-                        <p>{e.dlc}</p>
-                        
-                        
-                    </div>
-                    
+                        <h3>{e.name}</h3>
+                        <h4>{e.dlc}</h4>
+                        <p className={styles.textEvent}>Début de l'event : </p>
+                    </div> 
                 </div>
         ));
     

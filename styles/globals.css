@@ -8,3 +8,12 @@ body {
 * {
   box-sizing: border-box;
 }
+
+h3 {
+  margin: 0;
+}
+h4 {
+  color: grey;
+  margin: 0;
+  padding: 0;
+}
