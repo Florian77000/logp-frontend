@@ -40,12 +40,12 @@ export default function Header() {
       }
      if(user.email) {
         userSection = (
-          <div>
-            <p>bienvenue {user.email}</p>
+          <div className={styles.welcomeMenu}>
+            <p>Bienvenue {user.email}</p>
             <Popover
           content={
             <div className={styles.linkPopover}>
-              <li className={styles.linkTextAdmin}>ajouter un circuit</li>
+              <li className={styles.linkTextAdmin}><Link href="../addCalendar">ajouter un circuit</Link></li>
               <li className={styles.linkTextAdmin}>lien 2</li>
               <li className={styles.linkTextAdmin}>lien 3</li>
                 <button onClick={() => handleLogout()}>logout</button>
@@ -80,12 +80,12 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <img className={styles.logoImg} src="logo.png"></img>
+        <Link href="./"><img className={styles.logoImg} src="logo.png"></img></Link>
       </div>
       <nav className={styles.link}>
+        <li ><Link  href="" ><a className={styles.linkText}>Classement</a></Link></li> 
         <li ><Link  href="./calendar" ><a className={styles.linkText}>Calendrier</a></Link></li>
-        <li ><Link  href="./addCalendar" ><a className={styles.linkText}>Ajout circuit</a></Link></li>
-        <li ><Link  href="#" ><a className={styles.linkText}>Lien 3</a></Link></li> 
+        <li ><Link  href="" ><a className={styles.linkText}>A propos</a></Link></li>
       </nav>
       <div className={styles.icon}>
         <div>{userSection}</div>

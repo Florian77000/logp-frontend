@@ -11,7 +11,14 @@
 }
 
 .logoImg {
+  cursor: pointer;
   width: 250px;
+}
+
+.welcomeMenu {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 /*__________________________________________gestion pour les liens dans le header */
