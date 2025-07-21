@@ -1,13 +1,13 @@
 .title {
-    margin: 50px
+    margin: 40px
 }
 .calendar {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 50px;
-    margin-right: 50px;
-    margin-left: 50px;
+    gap: 30px;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .calendarCard {
@@ -15,8 +15,8 @@
     flex-direction: column;
     border: 1px solid black;
     border-radius: 10px;
-    width: 400px;
-    height: 350px;
+    width: 320px;
+    height: 340px;
 }
 
 .divImage {
