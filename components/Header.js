@@ -39,6 +39,8 @@ export default function Header() {
       hideUserPopover();
       }
      if(user.email) {
+      if(user.role === "administrateur") {
+        console.log('test :', user.role)
         userSection = (
           <div className={styles.welcomeMenu}>
             <p>Bienvenue {user.email}</p>
@@ -64,6 +66,33 @@ export default function Header() {
         </Popover>
            </div>
         )
+        
+      } else {
+        userSection = (
+          <div className={styles.welcomeMenu}>
+            <p>Bienvenue {user.email}</p>
+            <Popover
+          content={
+            <div className={styles.linkPopover}>
+              <li className={styles.linkTextAdmin}>lien 2</li>
+              <li className={styles.linkTextAdmin}>lien 3</li>
+                <button onClick={() => handleLogout()}>logout</button>
+              <a onClick={hideUserPopover}>Close</a>
+            </div>
+          }
+          trigger="click"
+          open={userPopoverOpen}
+          onOpenChange={handleUserPopoverOpenChange}
+        >
+          <FontAwesomeIcon
+            className={styles.iconBarsAdmin}
+            icon={faBars}
+            size="2xl"
+          />
+        </Popover>
+           </div>
+        )
+      } 
      } else {
       userSection = (
      <>

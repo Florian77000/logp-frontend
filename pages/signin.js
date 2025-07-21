@@ -9,6 +9,7 @@ import { login} from "../reducer/user";
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
@@ -28,10 +29,12 @@ export default function Signin() {
     })
     .then((response) => response.json())
     .then((data) => {
+       console.log('Données reçues de l\'API :', data);
       if(data.result === true) {
         router.push("/") //permet de gerer la redirection sur la page index
         dispatch(login ({
-          email : email,
+          email : data.email,
+          role : data.role,
         }));
       } else {
         setMessage("L'email ou le mot de passe est incorrect")
