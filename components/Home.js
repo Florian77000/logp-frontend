@@ -18,7 +18,7 @@ function Home() {
         <div className={styles.homeBtn}>
           <button className={styles.btn}>Rejoindre la ligue</button>
         </div>
-        
+        v1.1
       </main>
     </div>
   );
