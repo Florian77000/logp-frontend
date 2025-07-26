@@ -8,7 +8,17 @@ function Home() {
         <Header />
       </header>
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome home to loGP</h1>
+        <div className={styles.divTitle}>
+          <img className={styles.imgTitle} src="./damier.png"></img>
+          <h1 className={styles.title}>Bienvenue à la LoGP</h1>
+        </div>
+        <div className={styles.accroche}>
+          <h3>Participez à des courses en ligne, seul ou en équipe, remportez le titre dans votre catégorie</h3>
+        </div>
+        <div className={styles.homeBtn}>
+          <button className={styles.btn}>Rejoindre la ligue</button>
+        </div>
+        
       </main>
     </div>
   );
